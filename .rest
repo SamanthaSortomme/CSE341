@@ -11,4 +11,13 @@ GET http://localhost:8080/contacts/643e01b3d9fee2c621140f96
 
 ###
 
+GET https://cse341l02.onrender.com/contacts
 
+###
+GET https://cse341l02.onrender.com/contacts/643e01b3d9fee2c621140f94
+
+###
+GET https://cse341l02.onrender.com/contacts/643e01b3d9fee2c621140f95
+
+###
+GET https://cse341l02.onrender.com/contacts/643e01b3d9fee2c621140f96
