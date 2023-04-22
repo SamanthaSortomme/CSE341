@@ -53,38 +53,38 @@ const create = async (req, res, next) => {
     res.status(200).json({id: result.insertedId});
   }
 }
-const modify = async (req, res, next) => {
-  const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db('CSE341W02').collection('contacts').find({ _id: userId });
+// const modify = async (req, res, next) => {
+//   const userId = new ObjectId(req.params.id);
+//   const result = await mongodb.getDb().db('CSE341W02').collection('contacts').find({ _id: userId });
 
-if (FIND IF I HAVE A USER)
-  else if (req.body.firstName == null){
-    res.setHeader('Content-Type', 'application/json');
-    res.status(400).json("firstName is a required field");
-  } else if (req.body.lastName == null){
-    res.setHeader('Content-Type', 'application/json');
-    res.status(400).json("lastName is a required field");
-  } else if (req.body.email == null){
-    res.setHeader('Content-Type', 'application/json');
-    res.status(400).json("email is a required field");
-  } else if (req.body.favoriteColor == null){
-    res.setHeader('Content-Type', 'application/json');
-    res.status(400).json("favoriteColor is a required field");
-  } else if (req.body.birthday == null){
-    res.setHeader('Content-Type', 'application/json');
-    res.status(400).json("birthday is a required field");
-  } else {
-    const result = await mongodb.getDb().db('CSE341W02').collection('contacts').NEEDTOFINDUPDATECODE({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      favoriteColor: req.body.favoriteColor,
-      birthday: req.body.birthday,
-    });
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json({id: result.insertedId});
-  }
-};
+// if (FIND IF I HAVE A USER)
+//   else if (req.body.firstName == null){
+//     res.setHeader('Content-Type', 'application/json');
+//     res.status(400).json("firstName is a required field");
+//   } else if (req.body.lastName == null){
+//     res.setHeader('Content-Type', 'application/json');
+//     res.status(400).json("lastName is a required field");
+//   } else if (req.body.email == null){
+//     res.setHeader('Content-Type', 'application/json');
+//     res.status(400).json("email is a required field");
+//   } else if (req.body.favoriteColor == null){
+//     res.setHeader('Content-Type', 'application/json');
+//     res.status(400).json("favoriteColor is a required field");
+//   } else if (req.body.birthday == null){
+//     res.setHeader('Content-Type', 'application/json');
+//     res.status(400).json("birthday is a required field");
+//   } else {
+//     const result = await mongodb.getDb().db('CSE341W02').collection('contacts').NEEDTOFINDUPDATECODE({
+//       firstName: req.body.firstName,
+//       lastName: req.body.lastName,
+//       email: req.body.email,
+//       favoriteColor: req.body.favoriteColor,
+//       birthday: req.body.birthday,
+//     });
+//     res.setHeader('Content-Type', 'application/json');
+//     res.status(200).json({id: result.insertedId});
+//   }
+// };
 
 
 
