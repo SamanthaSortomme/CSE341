@@ -28,14 +28,26 @@ GET https://cse341l02.onrender.com/contacts/643e01b3d9fee2c621140f96
 
 ###
 
-POST http://localhost:8080/contacts/ HTTP/1.1
-content-type: application/json
+# POST http://localhost:8080/contacts/ HTTP/1.1
+# content-type: application/json
 
-{
-    "firstName": "xxJacob",
-    "lastName": "Snakub",
-    "email": "JtheS@email.com",
-    "favoriteColor": "redd",
-    "birthday": "06/22/02",
-    "hello": "anyValue"
-}
+# {
+#     "firstName": "hgffg",
+#     "lastName": "fdgh",
+#     "email": "JtheS@email.com",
+#     "favoriteColor": "redd",
+#     "birthday": "06/22/02",
+#     "hello": "anyValue"
+# }
+# ###
+# PUT http://localhost:8080/contacts/643e01b3d9fee2c621140f95 HTTP/1.1
+# content-type: application/json
+
+# {
+#   "_id": "643e01b3d9fee2c621140f96",
+#   "firstName": "Burt",
+#   "lastName": "Fires",
+#   "email": "bambada@email.com",
+#   "favoriteColor": "red",
+#   "birthday": "06/22/18"
+# }
