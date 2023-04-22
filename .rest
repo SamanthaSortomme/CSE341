@@ -1,3 +1,7 @@
+
+//This is how users use your API You have to click button to make things happen
+
+
 GET http://localhost:8080/contacts
 
 ###
@@ -21,3 +25,17 @@ GET https://cse341l02.onrender.com/contacts/643e01b3d9fee2c621140f95
 
 ###
 GET https://cse341l02.onrender.com/contacts/643e01b3d9fee2c621140f96
+
+###
+
+POST http://localhost:8080/contacts/ HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "xxJacob",
+    "lastName": "Snakub",
+    "email": "JtheS@email.com",
+    "favoriteColor": "redd",
+    "birthday": "06/22/02",
+    "hello": "anyValue"
+}
