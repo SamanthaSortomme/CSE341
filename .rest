@@ -32,24 +32,25 @@ POST http://localhost:8080/contacts/ HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "hgffg",
-    "lastName": "fdgh",
-    "email": "JtheS@email.com",
-    "favoriteColor": "redd",
-    "birthday": "06/22/02",
-    "hello": "anyValue"
+    "firstName": "polly",
+    "lastName": "cracker",
+    "email": "parrot@email.com",
+    "favoriteColor": "red",
+    "birthday": "06/22/02"
 }
+
 ###
-PUT http://localhost:8080/contacts/64441fdb467f7f202c4f05a5 HTTP/1.1
+PUT http://localhost:8080/contacts/644813ff5178ea10157dffaf HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "furuh",
-    "lastName": "baby",
-    "email": "staaaap@email.com",
-    "favoriteColor": "blue",
-    "birthday": "12/31/99"}
+    "firstName": "Richard",
+    "lastName": "pointif",
+    "email": "stopmockingme@email.com",
+    "favoriteColor": "white",
+    "birthday": "10/22/84"
+}
 
 ###
-DELETE http://localhost:8080/contacts/64442a147899d2481f3b7ac8 HTTP/1.1
+DELETE http://localhost:8080/contacts/644813ff5178ea10157dffaf HTTP/1.1
 Content-Type:  application/json

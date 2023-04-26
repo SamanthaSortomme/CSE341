@@ -48,7 +48,7 @@ const create = async (req, res, next) => {
     // const db = mongodb.getDb();
     // const x = db.db('CSEwhatever');
     // const contacts = x.collection('contacts')
-    // const result = contacts.insertone()
+    // const result = contacts.insertOne()
     res.setHeader('Content-Type', 'application/json');
     res.status(201).json({id: result.insertedId});
   }
@@ -104,7 +104,7 @@ const modify = async (req, res, next) => {
        birthday: bDay},
       });
     res.setHeader('Content-Type', 'application/json');
-    res.status(418).json("Documents modified:" + result.modifiedCount);
+    res.status(204).json("Documents modified:" + result.modifiedCount);
   }else{
 
   }
