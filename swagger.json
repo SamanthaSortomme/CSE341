@@ -11,23 +11,33 @@
     "http"
   ],
   "paths": {
-    "/Contacts/": {
-      "GET all": {
-        "description": "This gets all of the contacts",
-        "parameters": [
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/contacts/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
         ],
+        "parameters": [],
         "responses": {
           "200": {
-            "description": "Here is a list of all of the contacts"
-          },
-          "500": {
-            "description": "Internal Server Error"
+            "description": "OK"
           }
         }
       },
-      "POST": {
-        "description": "This creates a contact",
-        "parameters": [{
+      "post": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
             "name": "body",
             "in": "body",
             "schema": {
@@ -42,7 +52,7 @@
                 "email": {
                   "example": "any"
                 },
-                  "favoriteColor": {
+                "favoriteColor": {
                   "example": "any"
                 },
                 "birthday": {
@@ -54,22 +64,23 @@
         ],
         "responses": {
           "201": {
-            "description": "You created a new contact"
+            "description": "Created"
           },
           "400": {
             "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/contacts/{_id}": {
-      "GET by id": {
-        "description": "Get a contact by their id",
-        "parameters": [{
-            "name": "_id",
+    "/contacts/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -77,66 +88,61 @@
         ],
         "responses": {
           "200": {
-            "description": "This is the contact you requested"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
+            "description": "OK"
           }
         }
       },
-      "PUT" : {
-        "description": "update a contact by id.",
+      "put": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "name": "_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-          "name": "contact info",
-          "in": "body",
-          "schema": {
-            "type": "object",
-            "properties": {
-              "firstName": {
-                "example": "any"
-              },
-              "lastName": {
-                "example": "any"
-              },
-              "email": {
-                "example": "any"
-              },
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
                 "favoriteColor": {
-                "example": "any"
-              },
-              "birthday": {
-                "example": "any"
+                  "example": "any"
+                },
+                "birthday": {
+                  "example": "any"
+                }
               }
             }
           }
-        }
-      ],
+        ],
         "responses": {
-          "200": {
-            "description": "You updated a contact, make sure to double check your work"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "204": {
+            "description": "No Content"
           }
         }
       },
-      "DELETE" : {
-        "description": "delete contact by id, the delete above is one of the 4 verbs I use, so it knew what to do",
-        "parameters": [{
-            "name": "_id",
+      "delete": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -144,13 +150,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Contact deleted, good job (hopefully you meant to do that)"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
+            "description": "OK"
           }
         }
       }

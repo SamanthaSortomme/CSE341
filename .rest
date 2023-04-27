@@ -32,9 +32,9 @@ POST http://localhost:8080/contacts/ HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "polly",
-    "lastName": "cracker",
-    "email": "parrot@email.com",
+    "firstName": "not",
+    "lastName": "working",
+    "email": "api@email.com",
     "favoriteColor": "red",
     "birthday": "06/22/02"
 }
