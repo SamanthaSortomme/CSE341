@@ -32,7 +32,7 @@ POST http://localhost:8080/contacts/ HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "27/4",
+    "firstName": "24/7",
     "lastName": "errors",
     "email": "api@email.com",
     "favoriteColor": "red",
@@ -40,7 +40,7 @@ content-type: application/json
 }
 
 ###
-PUT http://localhost:8080/contacts/644813ff5178ea10157dffaf HTTP/1.1
+PUT http://localhost:8080/contacts/644b4c8db1ec296b176140e6 HTTP/1.1
 content-type: application/json
 
 {
@@ -52,5 +52,56 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:8080/contacts/644813ff5178ea10157dffaf HTTP/1.1
+DELETE http://localhost:8080/contacts/6447e335079e8dcdef8a46f5 HTTP/1.1
+Content-Type:  application/json
+
+
+
+
+
+
+
+
+
+
+
+
+
+###
+GET http://localhost:3000/movies
+
+###
+GET https://cse341l02.onrender.com/movies
+
+###
+POST http://localhost:3000/movies/ HTTP/1.1
+content-type: application/json
+
+{
+
+    "movieTitle": "Lotr",
+    "releaseYear": "2050",
+    "language": "Elvish",
+    "movieLength": "258",
+    "rating": "pg",
+    "specialFeatures": "All of them",
+    "boxOfficeGross": "50 Billion"
+}
+
+###
+PUT http://localhost:3000/movies/644d50d8c984b6046b3eb550 HTTP/1.1
+content-type: application/json
+
+{
+    "movieTitle": "Lotr",
+    "releaseYear": "2050",
+    "language": "Elvish",
+    "movieLength": "258",
+    "rating": "pg",
+    "specialFeatures": "All of them",
+    "boxOfficeGross": "50 Billion"
+}
+
+###
+DELETE http://localhost:3000/movies/644d50d8c984b6046b3eb550 HTTP/1.1
 Content-Type:  application/json
