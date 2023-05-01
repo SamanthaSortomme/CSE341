@@ -96,7 +96,7 @@ content-type: application/json
     "movieTitle": "fffffff",
     "releaseYear": "ffff",
     "language": "Elvish",
-    "movieLength": "258",
+    "movieLength": "258x",
     "rating": "pg",
     "specialFeatures": "All of them",
     "boxOfficeGross": "50 Billion"

@@ -71,7 +71,7 @@ const create = async (req, res, next) => {
 
 
 const modify = async (req, res, next) => {
-  check('releaseYear').isLength({ min: 99});
+
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     // return res.status(422).json({ errors: errors.array() })
