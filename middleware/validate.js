@@ -6,11 +6,13 @@ const validator = require('../helpers/validate');
 
 const saveContact = (req, res, next) => {
   const validationRule = {
-    firstName: 'required|string',
-    lastName: 'required|string',
-    email: 'required|email',
-    favoriteColor: 'required|string',
-    birthday: 'string'
+    movieTitle: 'required|string',
+    releaseYear: 'required|integer',
+    language: 'required|string',
+    movieLength: 'required|integer',
+    rating: 'required|string',
+    specialFeatures: 'required|string',
+    boxOfficeGross: 'required|string',
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {

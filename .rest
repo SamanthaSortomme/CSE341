@@ -79,7 +79,7 @@ content-type: application/json
 
 {
 
-    "movieTitle": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "movieTitle": "LotR",
     "releaseYear": "2050",
     "language": "Elvish",
     "movieLength": "258",
