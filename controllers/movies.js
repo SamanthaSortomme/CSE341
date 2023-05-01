@@ -64,10 +64,6 @@ const create = async (req, res, next) => {
     res.status(201).json({id: result.insertedId});
   }
 }
-// This is not checking that the year is a number.
-// This is not checking that the year is a number.
-// This is not checking that the year is a number.
-// This is not checking that the year is a number.
 
 
 const modify = async (req, res, next) => {
@@ -87,10 +83,7 @@ const modify = async (req, res, next) => {
     res.status(400).json("This is not a valid ID format")
     return
   }
-//Above is not working
-//Above is not working
-//Above is not working
-//Above is not working
+
 
   let mTitle, rYear, language, mLength, rat;
   let result = await mongodb.getDb().db('CSE341W02').collection('movies').find({ _id: movieId }).toArray();

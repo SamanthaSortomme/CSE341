@@ -19,6 +19,10 @@ app
 })
 .use('/', require('./routes'));
 
+//this is a catch all
+process.on('uncaughtException', (err, origin) => {
+  console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+});
 
 
 mongodb.initDb((err, mongodb) => {

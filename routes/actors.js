@@ -1,14 +1,14 @@
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
 
-const actorsController = require('../controllers/actors');
+// const actorsController = require('../controllers/actors');
 
-router.get('/', actorsController.getAll);
+// router.get('/', actorsController.getAll);
 
-router.post('/', actorsController.create);
+// router.post('/', actorsController.create);
 
-router.put('/:id', actorsController.modify);
+// router.put('/:id', actorsController.modify);
 
-router.delete('/:id', actorsController.deleteOne);
+// router.delete('/:id', actorsController.deleteOne);
 
-module.exports = router;
+// module.exports = router;
