@@ -93,7 +93,7 @@ PUT http://localhost:8080/movies/644d5075c984b6046b3eb54f HTTP/1.1
 content-type: application/json
 
 {
-    "movieTitle": "fffffff",
+    "movieTitle": "errorCheck",
     "releaseYear": "ffff",
     "language": "Elvish",
     "movieLength": "258",
@@ -104,4 +104,48 @@ content-type: application/json
 
 ###
 DELETE http://localhost:8080/movies/644d9e0e602805f0926e48e3 HTTP/1.1
+Content-Type:  application/json
+
+
+
+
+
+
+
+
+
+
+
+
+
+###
+GET http://localhost:8080/actors
+
+###
+GET https://cse341l02.onrender.com/actors
+
+###
+POST http://localhost:8080/actors/ HTTP/1.1
+content-type: application/json
+
+{
+
+    "firstName": "Frodo",
+    "lastName": "Baggins",
+    "moviesIn": "3"
+
+}
+
+###
+PUT http://localhost:8080/actors/644d5075c984b6046b3eb54f HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Frodo",
+    "lastName": "Baggins",
+    "moviesIn": "3"
+}
+
+###
+DELETE http://localhost:8080/actors/644d9e0e602805f0926e48e3 HTTP/1.1
 Content-Type:  application/json

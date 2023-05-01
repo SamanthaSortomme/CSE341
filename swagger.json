@@ -179,30 +179,121 @@
     "/actors/": {
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "post": {
         "description": "",
-        "parameters": [],
-        "responses": {}
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "movieTitle": {
+                  "example": "any"
+                },
+                "releaseYear": {
+                  "example": "any"
+                },
+                "language": {
+                  "example": "any"
+                },
+                "movieLength": {
+                  "example": "any"
+                },
+                "rating": {
+                  "example": "any"
+                },
+                "specialFeatures": {
+                  "example": "any"
+                },
+                "boxOfficeGross": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
       }
     },
     "/actors/{id}": {
       "put": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "movieTitle": {
+                  "example": "any"
+                },
+                "releaseYear": {
+                  "example": "any"
+                },
+                "language": {
+                  "example": "any"
+                },
+                "movieLength": {
+                  "example": "any"
+                },
+                "rating": {
+                  "example": "any"
+                },
+                "specialFeatures": {
+                  "example": "any"
+                },
+                "boxOfficeGross": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
       },
       "delete": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -211,7 +302,11 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     }
   }
