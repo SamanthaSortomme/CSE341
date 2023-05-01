@@ -2,6 +2,7 @@
 
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const { check, validationResult } = require('express-validator')
 
 const getAll = async (req, res, next) => {
   const result = await mongodb.getDb().db('CSE341W02').collection('movies').find();
@@ -12,8 +13,8 @@ const getAll = async (req, res, next) => {
 };
 
 const getSingle = async (req, res, next) => {
-  const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db('CSE341W02').collection('movies').find({ _id: userId });
+  const movieId = new ObjectId(req.params.id);
+  const result = await mongodb.getDb().db('CSE341W02').collection('movies').find({ _id: movieId });
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
@@ -21,7 +22,7 @@ const getSingle = async (req, res, next) => {
 };
 // req is info for web request that came to me
 //res response is what I am sending back
-//next next controller to happen for the request, might not be one (are they logged in, where are they from, different checks. Can also handle errors, give user 404 page)
+//next next controller to happen for the request, might not be one (are they logged in, where are they from, different checks. Can also handle errors, give user a 404 page)
 const create = async (req, res, next) => {
   console.log(req.body.movieTitle)
   if (req.body.movieTitle == null){
@@ -63,85 +64,113 @@ const create = async (req, res, next) => {
     res.status(201).json({id: result.insertedId});
   }
 }
+// This is not checking that the year is a number.
+// This is not checking that the year is a number.
+// This is not checking that the year is a number.
+// This is not checking that the year is a number.
+
 
 const modify = async (req, res, next) => {
-  const userId = new ObjectId(req.params.id);
-  let mTitle, rYear, language, mLength, rat;
-  let result = await mongodb.getDb().db('CSE341W02').collection('movies').find({ _id: userId }).toArray();
-  // collection.find
-  if (result.length > 0){
-    if (req.body.movieTitle == null){
-      mTitle = result[0].movieTitle;
-    // res.setHeader('Content-Type', 'application/json');
-    // res.status(400).json("movieTitle is a required field");
-    } else {
-      mTitle = req.body.movieTitle;
-    }
-    if (req.body.releaseYear == null){
-      rYear = result[0].releaseYear;
-      // res.setHeader('Content-Type', 'application/json');
-    // res.status(400).json("releaseYear is a required field");
-    } else {
-      rYear = req.body.releaseYear;
-    }
-    if (req.body.language == null){
-      language = result[0].language;
-      // res.setHeader('Content-Type', 'application/json');
-    // res.status(400).json("language is a required field");
-    } else{
-      language = req.body.language
-    }
-    if (req.body.movieLength == null){
-      mLength = result[0].movieLength;
-    //   res.setHeader('Content-Type', 'application/json');
-    // res.status(400).json("movieLength is a required field");
-    } else{
-      mLength = req.body.movieLength;
-    }
-    if (req.body.rating == null){
-      rat = result[0].rating;
-    //   res.setHeader('Content-Type', 'application/json');
-    // res.status(400).json("rating is a required field");
-    } else {
-      rat = req.body.rating;
-    }
-    if (req.body.specialFeatures == null){
-        sFeat = result[0].specialFeatures;
-      //   res.setHeader('Content-Type', 'application/json');
-      // res.status(400).json("specialFeatures is a required field");
-      } else {
-        sFeat = req.body.specialFeatures;
-      }
-      if (req.body.boxOfficeGross == null){
-        gross = result[0].boxOfficeGross;
-      //   res.setHeader('Content-Type', 'application/json');
-      // res.status(400).json("boxOfficeGross is a required field");
-      } else {
-        gross = req.body.boxOfficeGross;
-      }
-     result = await mongodb.getDb().db('CSE341W02').collection('movies').updateOne({_id: userId},
-      {
-      $set: {movieTitle: mTitle,
-       releaseYear: rYear,
-       language: language,
-       movieLength: mLength,
-       rating: rat,
-       specialFeatures: sFeat,
-       boxOfficeGross: gross
-    },
-      });
+  check('releaseYear').isLength({ min: 99});
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    // return res.status(422).json({ errors: errors.array() })
     res.setHeader('Content-Type', 'application/json');
-    res.status(204).json("Documents modified:" + result.modifiedCount);
-  }else{
-
+    res.status(400).json({ errors: errors.array() });
+    return
   }
+  let movieId = null
+  try {
+    movieId = new ObjectId(req.params.id);
+  } catch {
+    res.setHeader('Content-Type', 'application/json');
+    res.status(400).json("This is not a valid ID format")
+    return
+  }
+//Above is not working
+//Above is not working
+//Above is not working
+//Above is not working
+
+  let mTitle, rYear, language, mLength, rat;
+  let result = await mongodb.getDb().db('CSE341W02').collection('movies').find({ _id: movieId }).toArray();
+  // collection.find
+  if (result.length == 0){
+    res.setHeader('Content-Type', 'application/json');
+    res.status(400).json("There is no movie with that ID");
+    return
+  }
+  result = result[0]
+  if (req.body.movieTitle == null){
+    mTitle = result.movieTitle;
+  // res.setHeader('Content-Type', 'application/json');
+  // res.status(400).json("movieTitle is a required field");
+  } else {
+    mTitle = req.body.movieTitle;
+  }
+  if (req.body.releaseYear == null){
+    rYear = result.releaseYear;
+    // res.setHeader('Content-Type', 'application/json');
+  // res.status(400).json("releaseYear is a required field");
+  } else {
+    rYear = req.body.releaseYear;
+  }
+  if (req.body.language == null){
+    language = result.language;
+    // res.setHeader('Content-Type', 'application/json');
+  // res.status(400).json("language is a required field");
+  } else{
+    language = req.body.language
+  }
+  if (req.body.movieLength == null){
+    mLength = result.movieLength;
+  //   res.setHeader('Content-Type', 'application/json');
+  // res.status(400).json("movieLength is a required field");
+  } else{
+    mLength = req.body.movieLength;
+  }
+  if (req.body.rating == null){
+    rat = result.rating;
+  //   res.setHeader('Content-Type', 'application/json');
+  // res.status(400).json("rating is a required field");
+  } else {
+    rat = req.body.rating;
+  }
+  if (req.body.specialFeatures == null){
+      sFeat = result.specialFeatures;
+    //   res.setHeader('Content-Type', 'application/json');
+    // res.status(400).json("specialFeatures is a required field");
+    } else {
+      sFeat = req.body.specialFeatures;
+    }
+    if (req.body.boxOfficeGross == null){
+      gross = result.boxOfficeGross;
+    //   res.setHeader('Content-Type', 'application/json');
+    // res.status(400).json("boxOfficeGross is a required field");
+    } else {
+      gross = req.body.boxOfficeGross;
+    }
+    result = await mongodb.getDb().db('CSE341W02').collection('movies').updateOne({_id: movieId},
+    {
+    $set: {movieTitle: mTitle,
+      releaseYear: rYear,
+      language: language,
+      movieLength: mLength,
+      rating: rat,
+      specialFeatures: sFeat,
+      boxOfficeGross: gross
+  },
+    });
+  res.setHeader('Content-Type', 'application/json');
+  res.status(204).json("Documents modified:" + result.modifiedCount);
 }
+
 const deleteOne = async (req, res, next) => {
-  const userId = new ObjectId(req.params.id);
-  const checkID = await mongodb.getDb().db('CSE341W02').collection('movies').find({ _id: userId }).toArray();
+  const movieId = new ObjectId(req.params.id);
+  const checkID = await mongodb.getDb().db('CSE341W02').collection('movies').find({ _id: movieId }).toArray();
   if(checkID.length > 0)
   {
-    const result = await mongodb.getDb().db('CSE341W02').collection('movies').deleteOne({_id: userId});
+    const result = await mongodb.getDb().db('CSE341W02').collection('movies').deleteOne({_id: movieId});
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json("Documents deleted:" + result.deletedCount);
   };

@@ -79,7 +79,7 @@ content-type: application/json
 
 {
 
-    "movieTitle": "Lotr",
+    "movieTitle": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "releaseYear": "2050",
     "language": "Elvish",
     "movieLength": "258",
@@ -89,12 +89,12 @@ content-type: application/json
 }
 
 ###
-PUT http://localhost:8080/movies/644d50d8c984b6046b3eb550 HTTP/1.1
+PUT http://localhost:8080/movies/644d5075c984b6046b3eb54f HTTP/1.1
 content-type: application/json
 
 {
-    "movieTitle": "Lotr",
-    "releaseYear": "2050",
+    "movieTitle": "fffffff",
+    "releaseYear": "ffff",
     "language": "Elvish",
     "movieLength": "258",
     "rating": "pg",
@@ -103,5 +103,5 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:8080/movies/644d50d8c984b6046b3eb550 HTTP/1.1
+DELETE http://localhost:8080/movies/644d9e0e602805f0926e48e3 HTTP/1.1
 Content-Type:  application/json
