@@ -130,9 +130,9 @@ content-type: application/json
 
 {
 
-    "firstName": "Frodo",
+    "firstName": "Bilbo",
     "lastName": "Baggins",
-    "moviesIn": "3"
+    "moviesIn": "5"
 
 }
 
