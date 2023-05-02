@@ -201,25 +201,13 @@
             "schema": {
               "type": "object",
               "properties": {
-                "movieTitle": {
+                "firstName": {
                   "example": "any"
                 },
-                "releaseYear": {
+                "lastName": {
                   "example": "any"
                 },
-                "language": {
-                  "example": "any"
-                },
-                "movieLength": {
-                  "example": "any"
-                },
-                "rating": {
-                  "example": "any"
-                },
-                "specialFeatures": {
-                  "example": "any"
-                },
-                "boxOfficeGross": {
+                "moviesIn": {
                   "example": "any"
                 }
               }
@@ -255,25 +243,13 @@
             "schema": {
               "type": "object",
               "properties": {
-                "movieTitle": {
+                "firstName": {
                   "example": "any"
                 },
-                "releaseYear": {
+                "lastName": {
                   "example": "any"
                 },
-                "language": {
-                  "example": "any"
-                },
-                "movieLength": {
-                  "example": "any"
-                },
-                "rating": {
-                  "example": "any"
-                },
-                "specialFeatures": {
-                  "example": "any"
-                },
-                "boxOfficeGross": {
+                "moviesIn": {
                   "example": "any"
                 }
               }
