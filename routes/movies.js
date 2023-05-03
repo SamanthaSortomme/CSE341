@@ -8,11 +8,20 @@ router.get('/', moviesController.getAll);
 
 router.get('/:id', moviesController.getSingle);
 
-router.post('/', validation.saveContact, moviesController.create);
+//===================================================
+router.post('/', requiresAuth(), validation.saveContact, moviesController.create);
 
-router.put('/:id', validation.saveContact, moviesController.modify);
-//[body("releaseYear").isInt(), body("movieLength").isInt() ],
+router.put('/:id', requiresAuth(), validation.saveContact, moviesController.modify);
 
-router.delete('/:id', moviesController.deleteOne);
+
+router.delete('/:id', requiresAuth(), moviesController.deleteOne);
+
+//===================================================
+
+// router.post('/', validation.saveContact, moviesController.create);
+
+// router.put('/:id', validation.saveContact, moviesController.modify);
+
+// router.delete('/:id', moviesController.deleteOne);
 
 module.exports = router;
