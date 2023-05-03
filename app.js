@@ -52,7 +52,6 @@ app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
 
-
 app.get('/actors', requiresAuth(), (req, res) => {
   console.log(req)
   actor.find()
@@ -63,31 +62,21 @@ app.get('/actors', requiresAuth(), (req, res) => {
   })
 })
 //==================================================================
-
-
-
-
-
-
-
-app
-.use(bodyParser.json())
-.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
-  );
-  // res.setHeader('Content-Type', 'application/json');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  next();
-})
-.use('/', require('./routes'));
-
-//this is a catch all
-process.on('uncaughtException', (err, origin) => {
-  console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
-});
+// app
+// .use(bodyParser.json())
+// .use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+//   );
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+//   next();
+// })
+// .use('/', require('./routes'));
+// process.on('uncaughtException', (err, origin) => {
+//   console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+// });
 
 
 mongodb.initDb((err, mongodb) => {
