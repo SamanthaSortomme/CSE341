@@ -5,17 +5,17 @@ const actorsController = require('../controllers/actors');
 
 router.get('/', actorsController.getAll);
 //==================================================================
-router.post('/', requiresAuth(), validation.saveContact, actorsController.create);
+// router.post('/', requiresAuth(), validation.saveContact, actorsController.create);
 
-router.put('/:id', requiresAuth(), validation.saveContact, actorsController.modify);
+// router.put('/:id', requiresAuth(), validation.saveContact, actorsController.modify);
 
-router.delete('/:id', requiresAuth(), actorsController.deleteOne);
+// router.delete('/:id', requiresAuth(), actorsController.deleteOne);
 //==================================================================
 
-// router.post('/', actorsController.create);
+router.post('/', requiresAuth(), actorsController.create);
 
-// router.put('/:id', actorsController.modify);
+router.put('/:id', requiresAuth(), actorsController.modify);
 
-// router.delete('/:id', actorsController.deleteOne);
+router.delete('/:id', requiresAuth(), actorsController.deleteOne);
 
 module.exports = router;
