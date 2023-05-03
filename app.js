@@ -5,6 +5,71 @@ const mongodb = require('./db/connect');
 const port = process.env.PORT || 8080;
 const app = express();
 
+
+//==========================================================================
+// const express = require('express');
+// const app = express();
+const { auth, requiresAuth } = require('express-openid-connect');
+require('dotenv').config();
+
+// const mongoose = require('mongoose');
+// const Contact = require('./contact');
+// const swaggerUi = require('swagger-ui-express');
+// const swaggerDocument = require('./swagger-output.json');
+
+// const port = process.env.PORT || 3000;
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENT_ID,
+  issuerBaseURL: process.env.ISSUER_BASE_URL,
+};
+
+// establish a connection to the mongo database
+// mongoose.connect(process.env.mongodb,
+//   { useNewUrlParser: true }, (err, res) => {
+//      if (err) {
+//         console.log('Connection failed: ' + err);
+//      }
+//      else {
+//         console.log('Connected to database!');
+//      }
+//   }
+// );
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
+
+
+app.get('/actors', requiresAuth(), (req, res) => {
+  console.log(req)
+  actor.find()
+  .then(actors => {
+    res.status(200).json(actors)
+  }).catch(err => {
+    res.status(500).json({ message: 'An error occured', error: err })
+  })
+})
+//==================================================================
+
+
+
+
+
+
+
 app
 .use(bodyParser.json())
 .use((req, res, next) => {
@@ -33,3 +98,30 @@ mongodb.initDb((err, mongodb) => {
     console.log(`Connected to DB and listening on ${port}`);
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+// WHERE IS THE openid???
+// const { auth, requiresAuth } = require('express-openid-connect');
+
+
+
+// const config = {
+//   authRequired: false,
+//   auth0Logout: true,
+
+
+//   WHERE DOES THIS COME FROM? HOW DO i GET THESE VALUES
+//   secret: process.env.SECRET,
+//   baseURL: process.env.BASE_URL,
+//   clientID: process.env.CLIENT_ID,
+//   issuerBaseURL: process.env.ISSUER_BASE_URL,
+// };
