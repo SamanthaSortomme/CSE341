@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const actorsController = require('../controllers/actors');
+const { auth, requiresAuth } = require('express-openid-connect');
+
+
 
 router.get('/', actorsController.getAll);
 //==================================================================
@@ -11,10 +14,10 @@ router.get('/', actorsController.getAll);
 // router.delete('/:id', requiresAuth(), actorsController.deleteOne);
 //==================================================================
 
-router.post('/',  actorsController.create);
+router.post('/', requiresAuth(), actorsController.create);
 
-router.put('/:id', actorsController.modify);
+router.put('/:id', requiresAuth(), actorsController.modify);
 
-router.delete('/:id', actorsController.deleteOne);
+router.delete('/:id', requiresAuth(), actorsController.deleteOne);
 
 module.exports = router;

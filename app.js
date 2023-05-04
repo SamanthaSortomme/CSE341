@@ -18,26 +18,9 @@ const config = {
   clientID: process.env.CLIENT_ID,
   issuerBaseURL: process.env.ISSUER_BASE_URL,
 };
-app.use(auth(config));
-app.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-});
-
-app.get('/profile', requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.oidc.user));
-});
-
-// app.get('/actors', requiresAuth(), (req, res) => {
-//   console.log(req)
-//   actor.find()
-//   .then(actors => {
-//     res.status(200).json(actors)
-//   }).catch(err => {
-//     res.status(500).json({ message: 'An error occured', error: err })
-//   })
-// })
 //==================================================================
 app
+.use(auth(config))
 .use(bodyParser.json())
 .use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -52,7 +35,6 @@ app
 process.on('uncaughtException', (err, origin) => {
   console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
 });
-
 
 mongodb.initDb((err, mongodb) => {
   if (err) {
