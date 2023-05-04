@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const actorsController = require('../controllers/actors');
 
 router.get('/', actorsController.getAll);
@@ -12,10 +11,10 @@ router.get('/', actorsController.getAll);
 // router.delete('/:id', requiresAuth(), actorsController.deleteOne);
 //==================================================================
 
-router.post('/', requiresAuth(), actorsController.create);
+router.post('/',  actorsController.create);
 
-router.put('/:id', requiresAuth(), actorsController.modify);
+router.put('/:id', actorsController.modify);
 
-router.delete('/:id', requiresAuth(), actorsController.deleteOne);
+router.delete('/:id', actorsController.deleteOne);
 
 module.exports = router;
