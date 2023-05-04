@@ -27,15 +27,15 @@ app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
 
-app.get('/actors', requiresAuth(), (req, res) => {
-  console.log(req)
-  actor.find()
-  .then(actors => {
-    res.status(200).json(actors)
-  }).catch(err => {
-    res.status(500).json({ message: 'An error occured', error: err })
-  })
-})
+// app.get('/actors', requiresAuth(), (req, res) => {
+//   console.log(req)
+//   actor.find()
+//   .then(actors => {
+//     res.status(200).json(actors)
+//   }).catch(err => {
+//     res.status(500).json({ message: 'An error occured', error: err })
+//   })
+// })
 //==================================================================
 app
 .use(bodyParser.json())
