@@ -11,27 +11,7 @@
     "https"
   ],
   "paths": {
-    "/login": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/logout": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
+
     "/movies/": {
       "get": {
         "description": "",
