@@ -1,23 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const actorsController = require('../controllers/actors');
-const { auth, requiresAuth } = require('express-openid-connect');
-
-
+const { isAuthenticated } = require('../middleware/authenticate');
 
 router.get('/', actorsController.getAll);
-//==================================================================
-// router.post('/', requiresAuth(), validation.saveContact, actorsController.create);
 
-// router.put('/:id', requiresAuth(), validation.saveContact, actorsController.modify);
+router.post('/', isAuthenticated, actorsController.create);
 
-// router.delete('/:id', requiresAuth(), actorsController.deleteOne);
-//==================================================================
+router.put('/:id', isAuthenticated, actorsController.modify);
 
-router.post('/', requiresAuth(), actorsController.create);
-
-router.put('/:id', requiresAuth(), actorsController.modify);
-
-router.delete('/:id', requiresAuth(), actorsController.deleteOne);
+router.delete('/:id', isAuthenticated, actorsController.deleteOne);
 
 module.exports = router;
